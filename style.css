@@ -42,11 +42,14 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: none;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .card {
-    width: 25%;
+    width: min(400px, 25%);
+    min-width: 250px;
+    margin-left: 25px;
+    margin-right: 25px;
     padding: 25px;
     background-blend-mode: saturation;
     border: 5px solid #212329;
@@ -63,6 +66,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .card-image {
@@ -70,6 +74,7 @@ body {
     height: 400px;
     background-size: cover;
     background-blend-mode: lighten;
+    background-position: center top;
     margin-top: 8px;
     margin-bottom: 8px;
 }
