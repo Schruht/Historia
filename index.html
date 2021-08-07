@@ -33,10 +33,14 @@
             $.getJSON('data.json', (json) => {
                 gameData = json;
 
-                var listIndex = 0;
-                do {
-                    listIndex = Math.floor(Math.random() * gameData.groups.length);
-                } while (playedIndices.includes(listIndex));
+                var remainingIndices = [...Array(gameData.groups.length).keys()].filter(i => !(playedIndices.includes(i)));
+                if (remainingIndices.length == 0) {
+                    //TODO: Irgendwas
+                    alert('Keine Einträge mehr übrig :( Hier sollte irgendetwas passieren.');
+                    return;
+                }
+                var listIndex = remainingIndices[Math.floor(Math.random() * remainingIndices.length)];
+                playedIndices.push(listIndex);
 
                 currentPeople = gameData.groups[listIndex].people;
                 shuffleArray(currentPeople);

@@ -10,7 +10,7 @@
                 {
                     "name": "Randolph Pivot",
                     "img": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dedekind.jpeg",
-                    "desc": "Randolph Pivot (* 4. Dezember 1811 in Champigny-sur-Marne; † 21. März 1881 in Paris) war ein französischer Mathematiker und Philosoph, der unter Anderem die Grundlagen für moderne Sortieralgorithmen auf Basis des sogenannten Pivot-Elements erforschte.",
+                    "desc": "Randolph Pivot (* 4. Dezember 1811 in Champigny-sur-Marne; † 21. März 1881 in Paris) war ein französischer Mathematiker und Philosoph, der unter anderem die Grundlagen für moderne Sortieralgorithmen auf Basis des sogenannten Pivot-Elements erforschte.",
                     "real": false,
                     "ref": "https://de.wikipedia.org/wiki/Richard_Dedekind"
                 },
@@ -68,20 +68,20 @@
             "people": [{
                     "name": "Richard Dadd",
                     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Richard-Dadd-1817-1886.jpg/330px-Richard-Dadd-1817-1886.jpg",
-                    "desc": "Richard Dadd (* 1. August 1817 in Chatham, Kent; † 7. Januar 1886 in London) war ein Maler des Viktorianischen Zeitalters. Nachdem er seinen Vater erstach, weil er diesen für den Teufel hielt, verbrachte er 43 Jahre in verschiedenen Psychiatrien, in denen vieler seiner Werke entstanden.",
+                    "desc": "Richard Dadd (* 1. August 1817 in Chatham, Kent; † 7. Januar 1886 in London) war ein Maler des Viktorianischen Zeitalters, der für seine Darstellungen von Feen und anderen übernatürlichen Themen bekannt wurde. Nachdem er seinen Vater erstach, weil er diesen für den Teufel hielt, verbrachte er 43 Jahre in verschiedenen Psychiatrien, in denen vieler seiner Werke entstanden.",
                     "real": true,
                     "ref": "https://de.wikipedia.org/wiki/Richard_Dadd"
                 },
                 {
                     "name": "Benvenuto Cellini",
                     "img": "https://beruhmte-zitate.de/media/authors/benvenuto-cellini.jpeg",
-                    "desc": "Benvenuto Cellini (* 3. November 1500 in Florenz; † 13. Februar 1571 ebenda) war als italienischer Goldschmied und Bildhauer ein berühmter Vertreter des Manierismus. Gegen den mehrfachen Mörder wurde unter Anderem die Todesstrafe verhängt; ebenfalls wurde ihm vorgeworfen Juwelen aus der Papstkrone gestohlen zu haben.",
+                    "desc": "Benvenuto Cellini (* 3. November 1500 in Florenz; † 13. Februar 1571 ebenda) war als italienischer Goldschmied und Bildhauer ein berühmter Vertreter des Manierismus. Gegen den mehrfachen Mörder wurde unter anderem die Todesstrafe verhängt; ebenfalls wurde ihm vorgeworfen Juwelen aus der Papstkrone gestohlen zu haben.",
                     "real": true,
                     "ref": "https://de.wikipedia.org/wiki/Benvenuto_Cellini"
                 },
                 {
                     "name": "Vassily Ostrovsky",
-                    "img": "https://commons.wikimedia.org/wiki/File:Karlis_Ulmanis_Student.jpg",
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Karlis_Ulmanis_Student.jpg",
                     "desc": "Vassily Vladislavovich Ostrovsky (* 11. Juni 1877 in Yelchuv, Russland; † 21. November 1917 in Petrograd, Russland) war ein russischer Maler des Expressionismus. Berühmt wurde seine Aktion des Sommers 1911, während der er ein 124 m² großes Gemälde auf den Roten Platz malte und anschließend mehrere Monate im Gefängnis verbrachte. Ostrovsky verlor sein Leben während der Oktoberrevolution in Petrograd (heute St. Petersburg).",
                     "real": false,
                     "ref": "https://en.wikipedia.org/wiki/Kārlis_Ulmanis"
