@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="title-bar">HISTORIA</div>
+    <div class="score-counter" id="score-counter">0</div>
+    <div class="content" id="card-container">
+    </div>
+    <div class="footer">
+        <ul class="footer-list">
+            <li>QUELLEN (SPOILER):
+                <div class="spoiler">
+                    <ul class="ref-list" id="ref-list">
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var gameData = {};
+        var playedIndices = [];
+        var currentPeople = {};
+        var score = 0;
+
+        const startRound = () => {
+            $.getJSON('data.json', (json) => {
+                gameData = json;
+
+                var listIndex = 0;
+                do {
+                    listIndex = Math.floor(Math.random() * gameData.groups.length);
+                } while (playedIndices.includes(listIndex));
+
+                currentPeople = gameData.groups[listIndex].people;
+                shuffleArray(currentPeople);
+
+                const cardContainer = document.getElementById('card-container');
+                cardContainer.innerHTML = '';
+                const refList = document.getElementById('ref-list');
+                refList.innerHTML = '';
+                currentPeople.forEach((person, index) => {
+
+                    let card = document.createElement('div');
+                    card.classList.add('card');
+                    card.addEventListener('click', (event) => {
+                        clickCard(index);
+                    })
+                    card.innerHTML = `<div class="card-title">${person.name}</div>
+                    <div class="card-image" style="background-image:url(${person.img})"></div>
+                    <div class="card-text">${person.desc}</div>
+                    `;
+                    cardContainer.appendChild(card);
+
+                    let li = document.createElement('li');
+                    li.innerHTML = `<a href="${person.ref}">${person.ref}</a>`;
+                    refList.appendChild(li);
+                });
+            });
+        }
+
+        const clickCard = (index) => {
+            console.log(currentPeople[index])
+            if (currentPeople[index].real) {
+                addScore(-1);
+            } else {
+                addScore(1);
+            }
+            startRound();
+        }
+
+        const addScore = (points) => {
+            score += points;
+            const scoreCounter = document.getElementById('score-counter');
+            scoreCounter.innerHTML = score;
+        }
+
+        $(document).ready(() => {
+            startRound();
+        });
+
+        const shuffleArray = (a) => {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+    "groups": [{
+        "id": 0,
+        "cat": ["sci", "math", "phys"],
+        "people": [{
+                "name": "Oliver Heaviside",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Oheaviside.jpg/330px-Oheaviside.jpg",
+                "desc": "Oliver Heaviside (* 18. Mai 1850 in London; † 3. Februar 1925 in Homefield bei Torquay) war ein britischer Mathematiker und Physiker, der wesentliche Beiträge zur Entwicklung der Theorie des Elektromagnetismus lieferte.",
+                "real": true,
+                "ref": "https://de.wikipedia.org/wiki/Oliver_Heaviside"
+            },
+            {
+                "name": "Randolph Pivot",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dedekind.jpeg",
+                "desc": "Randolph Pivot (* 4. Dezember 1811 in Champigny-sur-Marne; † 21. März 1881 in Paris) war ein französischer Mathematiker und Philosoph, der unter Anderem die Grundlagen für moderne Sortieralgorithmen auf Basis des sogenannten Pivot-Elements erforschte.",
+                "real": false,
+                "ref": "https://de.wikipedia.org/wiki/Richard_Dedekind"
+            },
+            {
+                "name": "Johann Heinrich Lambert",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Johann_Heinrich_Lambert_1829_Engelmann.png/330px-Johann_Heinrich_Lambert_1829_Engelmann.png",
+                "desc": "Johann Heinrich Lambert (* 26. August 1728 in Mülhausen (Elsass); † 25. September 1777 in Berlin) war ein schweizerisch-elsässischer Mathematiker, Logiker, Physiker und Philosoph der Aufklärung, der u. a. die Irrationalität der Zahl Pi bewies.",
+                "real": true,
+                "ref": "https://de.wikipedia.org/wiki/Johann_Heinrich_Lambert"
+            }
+        ]
+    }]
+}
