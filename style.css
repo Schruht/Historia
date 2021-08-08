@@ -45,21 +45,32 @@ body {
     justify-content: center;
 }
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .card {
     width: min(400px, 25%);
     min-width: 250px;
     margin-left: 25px;
     margin-right: 25px;
     padding: 25px;
+    opacity: 1;
     background-blend-mode: saturation;
     border: 5px solid #212329;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.2s;
     cursor: pointer;
+    animation: fade-in 0.3s forwards;
 }
 
 .card:hover {
     transform: translate(0, -12px);
-    border-color: #b8281b;
+    border-color: #999fad;
 }
 
 .card-title {
@@ -128,4 +139,33 @@ a:hover {
 
 a:visited {
     color: inherit;
+}
+
+.clicked {
+    transform: translate(0, -12px);
+}
+
+.wrong {
+    color: #b8281b;
+    border-color: #b8281b !important;
+}
+
+.right {
+    color: #667dc3;
+    border-color: #667dc3 !important;
+}
+
+@keyframes dismiss {
+    from {
+        transform: translate(0, -12px);
+        opacity: 1;
+    }
+    to {
+        transform: translate(0, 100%);
+        opacity: 0;
+    }
+}
+
+.dismissed {
+    animation: dismiss 0.2s forwards;
 }

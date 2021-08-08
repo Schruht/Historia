@@ -53,6 +53,7 @@
 
                     let card = document.createElement('div');
                     card.classList.add('card');
+                    card.id = `card-${index}`
                     card.addEventListener('click', (event) => {
                         clickCard(index);
                     })
@@ -70,12 +71,39 @@
         }
 
         const clickCard = (index) => {
+
+            var card = document.getElementById(`card-${index}`);
+            card.classList.add('clicked')
+
+            var answer = ''
+
             if (currentPeople[index].real) {
                 addScore(-1);
+                answer = 'wrong';
             } else {
                 addScore(1);
+                answer = 'right';
             }
-            startRound();
+
+            card.classList.add(answer);
+
+            setTimeout(() => {
+                dismissCards(0, currentPeople.length);
+                setTimeout(() => {
+                    startRound();
+                }, 150 * (currentPeople.length + 1));
+            }, 500);
+        }
+
+        const dismissCards = (index, cardCount) => {
+            setTimeout(() => {
+                document.getElementById(`card-${index}`).classList.add('dismissed');
+            }, 150 * index);
+            if (index == cardCount - 1) {
+                return
+            } else {
+                dismissCards(index + 1, cardCount);
+            }
         }
 
         const addScore = (points) => {
