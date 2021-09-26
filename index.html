@@ -25,48 +25,75 @@
     </div>
     <script>
         var gameData = {};
-        var playedIndices = [];
-        var currentPeople = {};
+        //var playedIndices = [];
+        var currentPeople = [];
         var score = 0;
+        var roundIndex = 0;
+        var realPeople = [];
+        var fakePeople = [];
 
-        const startRound = () => {
+        const startGame = () => {
             $.getJSON('data.json', (json) => {
                 gameData = json;
 
-                var remainingIndices = [...Array(gameData.groups.length).keys()].filter(i => !(playedIndices.includes(i)));
-                if (remainingIndices.length == 0) {
+                //var remainingIndices = [...Array(gameData.groups.length).keys()].filter(i => !(playedIndices.includes(i)));
+
+                /*if (remainingIndices.length == 0) {
                     //TODO: Irgendwas
                     alert('Keine Einträge mehr übrig :( Hier sollte irgendetwas passieren.');
                     return;
                 }
+
                 var listIndex = remainingIndices[Math.floor(Math.random() * remainingIndices.length)];
                 playedIndices.push(listIndex);
 
                 currentPeople = gameData.groups[listIndex].people;
-                shuffleArray(currentPeople);
+                */
 
-                const cardContainer = document.getElementById('card-container');
-                cardContainer.innerHTML = '';
-                const refList = document.getElementById('ref-list');
-                refList.innerHTML = '';
-                currentPeople.forEach((person, index) => {
+                realPeople = gameData.people.real;
 
-                    let card = document.createElement('div');
-                    card.classList.add('card');
-                    card.id = `card-${index}`
-                    card.addEventListener('click', (event) => {
-                        clickCard(index);
-                    })
-                    card.innerHTML = `<div class="card-title">${person.name}</div>
+                fakePeople = gameData.people.fake;
+
+                console.log(realPeople)
+
+                shuffleArray(realPeople);
+                shuffleArray(fakePeople);
+
+                startRound();
+
+            });
+        }
+
+        const startRound = () => {
+
+            currentPeople = [];
+            currentPeople.push(realPeople[roundIndex * 3]);
+            currentPeople.push(realPeople[roundIndex * 3 + 1]);
+            currentPeople.push(fakePeople[roundIndex]);
+
+            shuffleArray(currentPeople);
+
+            const cardContainer = document.getElementById('card-container');
+            cardContainer.innerHTML = '';
+            const refList = document.getElementById('ref-list');
+            refList.innerHTML = '';
+            currentPeople.forEach((person, index) => {
+
+                let card = document.createElement('div');
+                card.classList.add('card');
+                card.id = `card-${index}`
+                card.addEventListener('click', (event) => {
+                    clickCard(index);
+                })
+                card.innerHTML = `<div class="card-title">${person.name}</div>
                     <div class="card-image" style="background-image:url(${person.img})"></div>
                     <div class="card-text">${person.desc}</div>
                     `;
-                    cardContainer.appendChild(card);
+                cardContainer.appendChild(card);
 
-                    let li = document.createElement('li');
-                    li.innerHTML = `<a href="${person.ref}">${person.ref}</a>`;
-                    refList.appendChild(li);
-                });
+                let li = document.createElement('li');
+                li.innerHTML = `<a href="${person.ref}">${person.ref}</a>`;
+                refList.appendChild(li);
             });
         }
 
@@ -90,6 +117,7 @@
             setTimeout(() => {
                 dismissCards(0, currentPeople.length);
                 setTimeout(() => {
+                    roundIndex++;
                     startRound();
                 }, 150 * (currentPeople.length + 1));
             }, 500);
@@ -113,7 +141,7 @@
         }
 
         $(document).ready(() => {
-            startRound();
+            startGame();
         });
 
         const shuffleArray = (a) => {
@@ -122,6 +150,10 @@
                 [a[i], a[j]] = [a[j], a[i]];
             }
             return a;
+        }
+
+        const flatten = (array) => {
+
         }
     </script>
 </body>
